@@ -34,15 +34,16 @@ public class RSA {
 			e = generateCoPrime(phi);
 	
 			d = e.modInverse(phi);
-		} while(!check(e, d, n)); // Check if probablePrime worked
+		} while(!check(e, d, n));
 
 		logger.info("Inserisci il messaggio da criptare: ");
 		String msg = scn.nextLine();
-		logger.info("Messaggio da criptare: " + msg);
 
+		logger.info("Messaggio da criptare: " + msg);
 		String c = encrypt(msg, e, n);
 		logger.info("Encrypted = "+ c);
 		logger.info("Decrypted = "+ decrypt(c, d, n));
+		
 		scn.close();
 	}
 
